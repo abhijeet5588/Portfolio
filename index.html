@@ -90,8 +90,8 @@
         }
 
         .profile-picture {
-            width: 300px;
-            height: 300px;
+            width: 350px; /* Increased size */
+            height: 350px; /* Increased size */
             border-radius: 50%;
             object-fit: cover;
             border: 5px solid #3498db; /* Highlight border */
@@ -533,9 +533,9 @@
             background-color: #ffffff;
             padding: 2rem;
             border-radius: 8px;
-            width: 1100px;
-            max-width: 90%;
-            max-height: 90%;
+            width: 1200px; /* Increased width */
+            max-width: 95%; /* Adjusted max-width */
+            max-height: 95%;
             overflow-y: auto;
             position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -959,16 +959,16 @@
             <p class="caption">Sentinel Standard FCC</p>
         </div>
         <div>
+            <img src="Sent_NDBI.jpg" alt="Sentinel NDBI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDBI';">
+            <p class="caption">Sentinel NDBI</p>
+        </div>
+        <div>
             <img src="Sent_NDVI.jpg" alt="Sentinel NDVI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDVI';">
             <p class="caption">Sentinel NDVI</p>
         </div>
         <div>
             <img src="Sent_NDWI.jpg" alt="Sentinel NDWI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDWI';">
             <p class="caption">Sentinel NDWI</p>
-        </div>
-        <div>
-            <img src="Sent_NDBI.jpg" alt="Sentinel NDBI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDBI';">
-            <p class="caption">Sentinel NDBI</p>
         </div>
     </div>
      <div class="project-modal-content" id="city-analytics-modal">
@@ -998,7 +998,6 @@
 
             // --- MODAL SCRIPT ---
             const modalOverlay = document.querySelector('.modal-overlay');
-            const modalContent = document.querySelector('.modal-content');
             const modalClose = document.querySelector('.modal-close');
             const modalTitle = document.querySelector('.modal-title');
             const modalGallery = document.querySelector('.modal-gallery');
@@ -1021,7 +1020,7 @@
             
             function closeModal() {
                 modalOverlay.style.display = 'none';
-                modalGallery.innerHTML = ''; // Clear content on close
+                modalGallery.innerHTML = ''; // Clear content on close to prevent issues
             }
 
             modalClose.addEventListener('click', closeModal);
@@ -1036,8 +1035,8 @@
             // Function to switch pages
             function showPage(pageId) {
                 // Hide all pages and home sections
-                for (const id in pages) {
-                    if (pages[id]) pages[id].style.display = 'none';
+                for (const key in pages) {
+                    if (pages[key]) pages[key].style.display = 'none';
                 }
                 if (homeHighlights) homeHighlights.style.display = 'none';
                 
