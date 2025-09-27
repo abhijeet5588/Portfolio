@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhijeet Pawar | Portfolio</title>
+    
+    <!-- Importing the Raleway font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- General Body & Reset Styles --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #f8f9fa; /* Default light background */
+            color: #495057; /* Default soft dark text color */
+            line-height: 1.6;
+        }
+
+        /* --- Navigation Bar --- */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            background-color: #2c3e50; /* Dark slate blue background */
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            padding: 0 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #3498db; /* A brighter blue for hover and active effect */
+        }
+        
+        /* --- General Page Styles --- */
+        .page {
+            display: none; /* Hide all pages by default */
+        }
+
+        /* --- Home Page Section Styles --- */
+        .home-page-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            min-height: 90vh;
+            padding: 2rem 5%;
+            gap: 3rem;
+            background-color: #f8f9fa; /* Light background for home page */
+        }
+
+        .home-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-picture {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #3498db; /* Highlight border */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .home-text-container {
+            flex: 1.5; /* Give more space to the text */
+        }
+
+        .home-text-container h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: #212529; /* Darker text for heading */
+        }
+
+        .home-text-container p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #495057; /* Softer text color */
+        }
+        
+        /* --- Call-to-Action Button --- */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            border: 2px solid #3498db;
+            border-radius: 50px; /* Pill shape */
+            background-color: #3498db;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+        }
+        
+        /* --- Styles for light background sections --- */
+        .light-section {
+            background-color: #f8f9fa; /* Off-white background */
+        }
+
+        /* --- Content Sections (About, Maps, Contact) --- */
+        .content-section {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-section h2 {
+            font-size: 2.5rem;
+            color: #212529; /* Dark heading color */
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        
+        .content-section h3 {
+            font-size: 1.8rem;
+            color: #2c3e50; /* Darker blue for subheadings */
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .content-section h4 {
+            font-size: 1.2rem;
+            color: #343a40; /* Dark grey for sub-subheadings */
+            margin-bottom: 1rem;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 1rem auto; /* Center paragraph text */
+            color: #495057; /* Softer dark text for readability */
+        }
+
+        .content-section a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .content-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Engaging About Me Section --- */
+        .about-me-container {
+            text-align: justify;
+            margin-top: 1rem;
+        }
+        
+        /* --- New Skills Section --- */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 1.5rem 1rem;
+            width: 130px;
+            height: 80px; /* Adjusted height after removing SVG */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid #dee2e6;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .skill-item p {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #495057;
+            margin: 0;
+        }
+
+        /* --- Interests Section --- */
+        .interests-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .interest-item {
+            background-color: #ffffff;
+            color: #3498db;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: 2px solid #3498db;
+        }
+
+        /* --- Certifications Section --- */
+        .certifications-container {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .certification-item a {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid #dee2e6;
+            text-decoration: none;
+            color: #495057;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+        }
+
+        .certification-item a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            color: #3498db;
+        }
+
+        .certification-item svg {
+            width: 24px;
+            height: 24px;
+            color: #3498db;
+            flex-shrink: 0;
+        }
+
+        /* --- Work Experience Section --- */
+        .experience-container {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .experience-item {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        .experience-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-header svg {
+            width: 40px;
+            height: 40px;
+            color: #3498db;
+            flex-shrink: 0;
+        }
+
+        .experience-title h5 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-meta {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin: 0;
+        }
+
+        .experience-duties {
+            list-style-type: none; /* Remove default bullets */
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .experience-duties li {
+            font-size: 1rem;
+            color: #495057;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-duties li::before {
+            content: '✓'; /* Custom bullet point */
+            color: #3498db;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* --- Leadership Section on About Page --- */
+        .leadership-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        .leadership-item {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            flex: 1; /* Allow items to grow and shrink */
+            min-width: 250px; /* Prevent items from becoming too narrow */
+            border-top: 4px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .leadership-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .leadership-item svg {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 1rem;
+            color: #3498db;
+        }
+
+        .leadership-item h5 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .leadership-item p {
+            font-size: 1rem;
+            color: #495057;
+            margin: 0;
+        }
+        
+        /* --- Portfolio Page Styling --- */
+        .project-section {
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .project-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .map-gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px; /* Increased gap */
+            margin-top: 2rem;
+        }
+        .map-gallery img, .map-gallery iframe {
+            width: 100%;
+            max-width: 650px; /* Reduced max-width for better presentation */
+            border: 3px solid #dee2e6;
+            border-radius: 8px;
+        }
+        .caption {
+            font-weight: bold;
+            margin-top: -20px; /* Adjusted margin */
+            margin-bottom: 20px;
+            text-align: center;
+            color: #495057;
+        }
+
+        .video-container {
+            margin-top: 2.5rem;
+            text-align: center;
+        }
+
+        .video-placeholder {
+            margin-top: 1rem;
+            background-color: #e9ecef;
+            border: 3px dashed #dee2e6;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 650px;
+            height: 365px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            color: #6c757d;
+        }
+        .video-placeholder svg {
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* --- Featured Projects on Home Page --- */
+        .featured-projects-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .project-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            width: 350px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #dee2e6;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .project-card a {
+            text-decoration: none;
+        }
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .project-card h4 {
+            padding: 1rem;
+            font-size: 1.1rem;
+            color: #343a40;
+            margin-bottom: 0;
+        }
+        
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #495057;
+            background-color: #e9ecef; /* Slightly darker footer background */
+        }
+        
+        /* --- Responsive Design for smaller screens --- */
+        @media (max-width: 900px) {
+            .home-page-container, .about-me-container {
+                flex-direction: column; /* Stack on smaller screens */
+                text-align: center;
+            }
+
+            .home-page-container {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+
+            .about-me-container {
+                text-align: justify;
+            }
+
+            .nav-links {
+                justify-content: center;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-links li {
+                padding: 0 10px;
+            }
+            .home-text-container h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#maps">Portfolio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section / Home Page -->
+        <section id="home" class="home-page-container page">
+            <div class="home-image-container">
+                <img src="https://placehold.co/250x250/3498db/ecf0f1?text=AP" alt="Abhijeet Pawar" class="profile-picture">
+            </div>
+            <div class="home-text-container">
+                <h1>Abhijeet Pawar</h1>
+                <p>
+                    Hello and Namaskar, I'm a City Professional passionate about decoding urban complexity. Combining my background in Public Administration with advanced skills in geospatial and data analysis, I translate raw data into insights that can help shape better cities. This portfolio features my professional work and experiences.
+                </p>
+                <a href="#maps" class="cta-button">See My Work</a>
+            </div>
+        </section>
+        
+        <!-- Featured Projects for Home Page -->
+        <section id="home-highlights" class="content-section page light-section">
+            <h2>Featured Projects</h2>
+            <div class="featured-projects-container">
+                <div class="project-card">
+                    <a href="#maps" data-target="lulc-project">
+                        <img src="LULC_2019.jpg" alt="LULC 2019" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2019';">
+                        <h4>LULC Change Detection and Accuracy Assessment</h4>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a href="#maps" data-target="urban-expansion-project">
+                        <img src="FSAIIILULC_1990.jpg" alt="Land Use - 1990" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Land+Use+1990';">
+                        <h4>Modelling Urban Expansion</h4>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Page -->
+        <section id="about" class="content-section page light-section">
+            <h2>About Me</h2>
+            <div class="about-me-container">
+                <p>
+                    Ambitious and skilled City Professional with a background in Public Administration, currently pursuing an MA in Cities and Governance at the Tata Institute of Social Sciences, Hyderabad. I possess strong analytical, research, data analysis, geospatial analysis, and report writing skills. Complemented by leadership, strong communication skills and teamwork capabilities.
+                </p>
+            </div>
+
+            <h3>Work Experience</h3>
+            <div class="experience-container">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+                        <div class="experience-title">
+                            <h5>Internship - Municipal Finance</h5>
+                            <p class="experience-meta">Janaagraha (Full-time) | June 2025 - July 2025</p>
+                        </div>
+                    </div>
+                    <ul class="experience-duties">
+                        <li>Analysed data for Odisha State Finance Commission report.</li>
+                        <li>Contributed to the creation of a standardized market dashboard template.</li>
+                        <li>Tested City Finance WhatsApp bot and compared SEO related website changes.</li>
+                        <li>Supported Municipal Finance Blueprint analysis by verifying city-level source data.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Interests</h3>
+            <div class="interests-container">
+                <span class="interest-item">Municipal Finance</span>
+                <span class="interest-item">Sustainable Cities</span>
+                <span class="interest-item">Remote Sensing</span>
+                <span class="interest-item">Geospatial Analysis</span>
+                <span class="interest-item">Land Use and Land Cover Change</span>
+                <span class="interest-item">Climate Change</span>
+                <span class="interest-item">Public Administration</span>
+                <span class="interest-item">Urban Governance</span>
+            </div>
+
+            <h3>Certifications</h3>
+            <div class="certifications-container">
+                <div class="certification-item">
+                    <a href="https://drive.google.com/file/d/1IDsbATKvUwnzs1pNMm4yDeBK8wCnQWUE/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                        <span>Municipal Bonds by NISM</span>
+                    </a>
+                </div>
+            </div>
+
+            <h3>Skills</h3>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <p>QGIS</p>
+                </div>
+                <div class="skill-item">
+                    <p>Google Earth Engine</p>
+                </div>
+                <div class="skill-item">
+                    <p>Python</p>
+                </div>
+                <div class="skill-item">
+                    <p>R Programming</p>
+                </div>
+                 <div class="skill-item">
+                    <p>Stata</p>
+                </div>
+                 <div class="skill-item">
+                    <p>Power BI</p>
+                </div>
+                 <div class="skill-item">
+                    <p>MS Excel</p>
+                </div>
+                 <div class="skill-item">
+                    <p>MS Word</p>
+                </div>
+                 <div class="skill-item">
+                    <p>Canva</p>
+                </div>
+                 <div class="skill-item">
+                    <p>Report Writing</p>
+                </div>
+            </div>
+
+            <h3>Leadership</h3>
+            <div class="leadership-container">
+                <div class="leadership-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                    <h5>University Camp Organizer</h5>
+                    <p>Initiated and successfully led over 300 participants, gaining experience in teamwork, public speaking, and budget planning.</p>
+                </div>
+                <div class="leadership-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M19 5h-7A7 7 0 0 0 5 12v2h2v-2a5 5 0 0 1 5-5h7v2h-7v4h7v2h-7v4h7v2h-9a2 2 0 0 1-2-2v-2h-2v2a4 4 0 0 0 4 4h9a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z"/></svg>
+                    <h5>Treasurer, NSS Unit</h5>
+                    <p>Audited budgets for the NSS Unit and a university camp, cultivating a strong sense of accountability and attention to detail.</p>
+                </div>
+                <div class="leadership-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    <h5>National Integrity Tour Leader</h5>
+                    <p>Managed logistics for a 26-student cultural exchange, honing skills in cross-cultural communication and team management.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Maps/Portfolio Page -->
+        <section id="maps" class="content-section page light-section">
+            <h2>Portfolio</h2>
+
+            <div class="project-section">
+                <h3 id="urban-expansion-project">Modelling Urban Expansion</h3>
+                <div class="map-gallery">
+                    <img src="FSAIIILULC_1990.jpg" alt="Land Use - 1990" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Land+Use+1990';">
+                    <div class="caption">Land Use - 1990</div>
+    
+                    <img src="FSAIIILULC_2025.jpg" alt="Land Use - 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Land+Use+2025';">
+                    <div class="caption">Land Use - 2025</div>
+    
+                    <img src="FSAIII_Prox.jpg" alt="Proximity Maps" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Proximity+Maps';">
+                    <div class="caption">Proximity Maps</div>
+    
+                    <img src="FSAIII_Simu_2025.jpg" alt="Simulation 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Simulation+2025';">
+                    <div class="caption">Simulation 2025</div>
+    
+                    <img src="FSAIII_Simu_2030.jpg" alt="Simulation 2030" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Simulation+2030';">
+                    <div class="caption">Simulation 2030</div>
+                </div>
+                <div class="video-container">
+                    <h4>Land Use Animation</h4>
+                    <div class="video-placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                            <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"></path>
+                        </svg>
+                        <p>Video coming soon</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h3>Site Suitability Analysis</h3>
+                <p style="text-align:center; margin-top: 1rem;">Conducted site suitability analysis using GEE and QGIS to locate Ultra-Modern Garbage Transfer Facilities in the Bhopal Municipal Corporation area. Project assets can be added here.</p>
+            </div>
+
+            <div class="project-section">
+                <h3 id="lulc-project">LULC Change Detection and Accuracy Assessment</h3>
+                <div class="map-gallery">
+                    <img src="LULC_2019.jpg" alt="LULC 2019" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2019';">
+                    <div class="caption">LULC 2019</div>
+    
+                    <img src="LULC_2025.jpg" alt="LULC 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2025';">
+                    <div class="caption">LULC 2025</div>
+    
+                    <img src="LULC_Comp.jpg" alt="LULC Comparison" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+Comparison';">
+                    <div class="caption">LULC Comparison</div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h3>Image Indices</h3>
+                <div class="map-gallery">
+                    <img src="Sent_Std_FCC.jpg" alt="Sentinel Standard FCC" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+Standard+FCC';">
+                    <div class="caption">Sentinel Standard FCC</div>
+    
+                    <img src="Sent_NDVI.jpg" alt="Sentinel NDVI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDVI';">
+                    <div class="caption">Sentinel NDVI</div>
+    
+                    <img src="Sent_NDWI.jpg" alt="Sentinel NDWI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDWI';">
+                    <div class="caption">Sentinel NDWI</div>
+    
+                    <img src="Sent_NDBI.jpg" alt="Sentinel NDBI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDBI';">
+                    <div class="caption">Sentinel NDBI</div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h3>Digitisation</h3>
+                <iframe src="Intro_GIS.pdf" width="100%" height="500px" style="margin-top:1.5rem;"></iframe>
+            </div>
+
+            <div class="project-section">
+                <h3>City Analytics - Pune</h3>
+                <iframe src="City Analytics - Pune.pdf" width="100%" height="500px" style="margin-top:1.5rem;"></iframe>
+            </div>
+
+        </section>
+
+    </main>
+    
+    <footer>
+        <p>© 2025 Abhijeet Pawar. All rights reserved.</p>
+         <p>Email: <a href="mailto:abhijeetpawar1305@gmail.com">abhijeetpawar1305@gmail.com</a> | LinkedIn: <a href="https://www.linkedin.com/in/abhijeetpawar1305/" target="_blank">Abhijeet Pawar</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const ctaButton = document.querySelector('.cta-button');
+            const pages = {
+                home: document.getElementById('home'),
+                about: document.getElementById('about'),
+                maps: document.getElementById('maps')
+            };
+            const homeHighlights = document.getElementById('home-highlights');
+            const featuredProjectLinks = document.querySelectorAll('#home-highlights .project-card a');
+
+            // Function to switch pages
+            function showPage(pageId) {
+                // Hide all pages and home sections
+                for (const id in pages) {
+                    if (pages[id]) pages[id].style.display = 'none';
+                }
+                if (homeHighlights) homeHighlights.style.display = 'none';
+                
+                // Remove active class from all nav links
+                navLinks.forEach(link => link.classList.remove('active'));
+
+                // Get the target page and corresponding nav link
+                const targetPage = pages[pageId];
+                const activeLink = document.querySelector(`.nav-links a[href="#${pageId}"]`);
+
+                if (targetPage) {
+                    // Show the target page
+                    targetPage.style.display = (pageId === 'home') ? 'flex' : 'block';
+                    // If it's the home page, also show its specific sections
+                    if (pageId === 'home') {
+                        if (homeHighlights) homeHighlights.style.display = 'block';
+                    }
+                }
+
+                if(activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+
+            // Add click listeners to nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); // Stop the browser from scrolling
+                    const pageId = this.getAttribute('href').substring(1);
+                    showPage(pageId);
+                });
+            });
+
+             // Add click listener for featured project cards
+            featuredProjectLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const pageId = this.getAttribute('href').substring(1); // 'maps'
+                    const targetAnchorId = this.dataset.target;
+                    
+                    // Switch to the portfolio page
+                    showPage(pageId);
+                    
+                    const targetElement = document.getElementById(targetAnchorId);
+                    if (targetElement) {
+                        // Use a small delay to ensure the page is rendered before scrolling
+                        setTimeout(() => {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }, 100);
+                    }
+                });
+            });
+
+            // Add click listener to the main CTA button
+            ctaButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                const pageId = this.getAttribute('href').substring(1);
+                showPage(pageId);
+            });
+
+            // Show the home page by default on initial load
+            showPage('home');
+        });
+    </script>
+</body>
+</html>
+
