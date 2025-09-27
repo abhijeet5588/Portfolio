@@ -90,8 +90,8 @@
         }
 
         .profile-picture {
-            width: 250px;
-            height: 250px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
             object-fit: cover;
             border: 5px solid #3498db; /* Highlight border */
@@ -447,6 +447,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
+            margin-bottom: 1.5rem;
         }
         
         .tag-item {
@@ -457,6 +458,26 @@
             font-size: 0.8rem;
             font-weight: bold;
         }
+        
+        .view-project-btn {
+            background-color: transparent;
+            border: 2px solid #3498db;
+            color: #3498db;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin-top: auto; /* Pushes button to the bottom */
+        }
+
+        .view-project-btn:hover {
+            background-color: #3498db;
+            color: #ffffff;
+        }
+
 
         /* --- Featured Projects on Home Page --- */
         .featured-projects-container {
@@ -492,6 +513,75 @@
             font-size: 1.1rem;
             color: #343a40;
             margin-bottom: 0;
+        }
+        
+        /* --- MODAL (LIGHTBOX) STYLES --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .modal-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .modal-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .modal-gallery img, .modal-gallery video, .modal-gallery iframe {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .modal-gallery .caption {
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0.5rem;
+            color: #495057;
+        }
+
+        .project-modal-content {
+            display: none; /* Hide the template content */
         }
         
         /* --- Footer --- */
@@ -692,7 +782,7 @@
             <div class="portfolio-grid">
                 <!-- Project Card 1: Modelling Urban Expansion -->
                 <div class="portfolio-card">
-                    <img src="FSAIII_LULC_1990.jpg" alt="Urban Expansion" class="portfolio-card-img" onerror="this.src='https.placehold.co/600x400/4a627a/ffffff?text=Urban+Expansion';">
+                    <img src="FSAIII_LULC_1990.jpg" alt="Urban Expansion" class="portfolio-card-img" onerror="this.src='https://placehold.co/600x400/4a627a/ffffff?text=Urban+Expansion';">
                     <div class="portfolio-card-content">
                         <h5>Modelling Urban Expansion</h5>
                         <p>Simulated land use for Pune City (1990-2030) using GEE for classification and the MOLUSCE plugin in QGIS for <strong>Artificial Neural Network</strong>-based modeling.</p>
@@ -701,6 +791,7 @@
                             <span class="tag-item">Google Earth Engine</span>
                             <span class="tag-item">Urban Planning</span>
                         </div>
+                        <a href="#" class="view-project-btn" data-target="urban-expansion-modal">View Project</a>
                     </div>
                 </div>
 
@@ -715,6 +806,7 @@
                             <span class="tag-item">Google Earth Engine</span>
                             <span class="tag-item">Urban Services</span>
                         </div>
+                         <a href="#" class="view-project-btn" data-target="site-suitability-modal">View Project</a>
                     </div>
                 </div>
 
@@ -729,6 +821,7 @@
                             <span class="tag-item">Machine Learning</span>
                             <span class="tag-item">Remote Sensing</span>
                         </div>
+                         <a href="#" class="view-project-btn" data-target="lulc-modal">View Project</a>
                     </div>
                 </div>
 
@@ -744,6 +837,7 @@
                             <span class="tag-item">NDVI</span>
                             <span class="tag-item">NDWI</span>
                         </div>
+                         <a href="#" class="view-project-btn" data-target="indices-modal">View Project</a>
                     </div>
                 </div>
 
@@ -758,6 +852,7 @@
                             <span class="tag-item">Stata</span>
                             <span class="tag-item">Data Analysis</span>
                         </div>
+                         <a href="#" class="view-project-btn" data-target="city-analytics-modal">View Project</a>
                     </div>
                 </div>
 
@@ -772,6 +867,7 @@
                             <span class="tag-item">Digitisation</span>
                             <span class="tag-item">Cartography</span>
                         </div>
+                         <a href="#" class="view-project-btn" data-target="digitisation-modal">View Project</a>
                     </div>
                 </div>
             </div>
@@ -779,6 +875,90 @@
 
     </main>
     
+    <!-- MODAL (LIGHTBOX) STRUCTURE -->
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3 class="modal-title">Project Title</h3>
+            <div class="modal-gallery">
+                <!-- Project content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- HIDDEN PROJECT CONTENT FOR MODALS -->
+    <div class="project-modal-content" id="urban-expansion-modal">
+        <div>
+            <img src="FSAIII_LULC_1990.jpg" alt="Land Use - 1990" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Land+Use+1990';">
+            <p class="caption">Land Use - 1990</p>
+        </div>
+        <div>
+            <img src="FSAIII_LULC_2025.jpg" alt="Land Use - 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Land+Use+2025';">
+            <p class="caption">Land Use - 2025</p>
+        </div>
+        <div>
+            <img src="FSAIII_Prox.jpg" alt="Proximity Maps" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Proximity+Maps';">
+            <p class="caption">Proximity Maps</p>
+        </div>
+        <div>
+            <img src="FSAIII_Simu_2025.jpg" alt="Simulation 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Simulation+2025';">
+            <p class="caption">Simulation 2025</p>
+        </div>
+        <div>
+            <img src="FSAIII_Simu_2030.jpg" alt="Simulation 2030" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Simulation+2030';">
+            <p class="caption">Simulation 2030</p>
+        </div>
+        <div>
+            <video controls>
+                <source src="LULC_Animation.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p class="caption">Land Use Animation</p>
+        </div>
+    </div>
+    <div class="project-modal-content" id="site-suitability-modal">
+        <p>Project assets for Site Suitability Analysis can be added here.</p>
+    </div>
+    <div class="project-modal-content" id="lulc-modal">
+        <div>
+            <img src="LULC_Comp.jpg" alt="LULC Comparison" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+Comparison';">
+            <p class="caption">LULC Comparison</p>
+        </div>
+        <div>
+            <img src="LULC_2019.jpg" alt="LULC 2019" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2019';">
+            <p class="caption">LULC 2019</p>
+        </div>
+        <div>
+            <img src="LULC_2025.jpg" alt="LULC 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2025';">
+            <p class="caption">LULC 2025</p>
+        </div>
+    </div>
+    <div class="project-modal-content" id="indices-modal">
+        <div>
+            <img src="Sent_Std_FCC.jpg" alt="Sentinel Standard FCC" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+Standard+FCC';">
+            <p class="caption">Sentinel Standard FCC</p>
+        </div>
+        <div>
+            <img src="Sent_NDVI.jpg" alt="Sentinel NDVI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDVI';">
+            <p class="caption">Sentinel NDVI</p>
+        </div>
+        <div>
+            <img src="Sent_NDWI.jpg" alt="Sentinel NDWI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDWI';">
+            <p class="caption">Sentinel NDWI</p>
+        </div>
+        <div>
+            <img src="Sent_NDBI.jpg" alt="Sentinel NDBI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDBI';">
+            <p class="caption">Sentinel NDBI</p>
+        </div>
+    </div>
+     <div class="project-modal-content" id="city-analytics-modal">
+        <iframe src="City_Analytics.pdf" width="100%" height="600px" style="border:none;"></iframe>
+    </div>
+    <div class="project-modal-content" id="digitisation-modal">
+        <iframe src="Intro_GIS.pdf" width="100%" height="600px" style="border:none;"></iframe>
+    </div>
+
+
     <footer>
         <p>© 2025 Abhijeet Pawar. All rights reserved.</p>
          <p>Email: <a href="mailto:abhijeetpawar1305@gmail.com">abhijeetpawar1305@gmail.com</a> | LinkedIn: <a href="https://www.linkedin.com/in/abhijeetpawar1305/" target="_blank">Abhijeet Pawar</a></p>
@@ -795,6 +975,43 @@
             };
             const homeHighlights = document.getElementById('home-highlights');
             const featuredProjectLinks = document.querySelectorAll('#home-highlights .project-card a');
+
+            // --- MODAL SCRIPT ---
+            const modalOverlay = document.querySelector('.modal-overlay');
+            const modalContent = document.querySelector('.modal-content');
+            const modalClose = document.querySelector('.modal-close');
+            const modalTitle = document.querySelector('.modal-title');
+            const modalGallery = document.querySelector('.modal-gallery');
+            const viewProjectButtons = document.querySelectorAll('.view-project-btn');
+
+            viewProjectButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetId = this.dataset.target;
+                    const projectContent = document.getElementById(targetId);
+                    const projectTitle = this.closest('.portfolio-card-content').querySelector('h5').textContent;
+
+                    if (projectContent) {
+                        modalTitle.textContent = projectTitle;
+                        modalGallery.innerHTML = ''; // Clear previous content
+                        modalGallery.appendChild(projectContent.cloneNode(true));
+                        modalOverlay.style.display = 'flex';
+                    }
+                });
+            });
+            
+            function closeModal() {
+                modalOverlay.style.display = 'none';
+            }
+
+            modalClose.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', function(event) {
+                if (event.target === modalOverlay) {
+                    closeModal();
+                }
+            });
+            // --- END MODAL SCRIPT ---
+
 
             // Function to switch pages
             function showPage(pageId) {
@@ -856,9 +1073,4 @@
     </script>
 </body>
 </html>
-
-
-
-
-
 
