@@ -141,7 +141,7 @@
         /* --- Content Sections (About, Maps, Contact) --- */
         .content-section {
             padding: 60px 20px;
-            max-width: 900px;
+            max-width: 1200px; /* Wider max-width for portfolio grid */
             margin: 0 auto;
         }
 
@@ -392,62 +392,70 @@
             margin: 0;
         }
         
-        /* --- Portfolio Page Styling --- */
-        .project-section {
-            margin-bottom: 4rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #dee2e6;
-        }
-        .project-section:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-
-        .map-gallery {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px; /* Increased gap */
+        /* --- NEW PORTFOLIO GRID STYLES --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
             margin-top: 2rem;
         }
-        .map-gallery img, .map-gallery iframe {
-            width: 100%;
-            max-width: 650px; /* Reduced max-width for better presentation */
-            border: 3px solid #dee2e6;
+        
+        .portfolio-card {
+            background-color: #ffffff;
             border-radius: 8px;
-        }
-        .caption {
-            font-weight: bold;
-            margin-top: -20px; /* Adjusted margin */
-            margin-bottom: 20px;
-            text-align: center;
-            color: #495057;
-        }
-
-        .video-container {
-            margin-top: 2.5rem;
-            text-align: center;
-        }
-
-        .video-placeholder {
-            margin-top: 1rem;
-            background-color: #e9ecef;
-            border: 3px dashed #dee2e6;
-            border-radius: 8px;
-            width: 100%;
-            max-width: 650px;
-            height: 365px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-left: auto;
-            margin-right: auto;
-            color: #6c757d;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #dee2e6;
         }
-        .video-placeholder svg {
-            margin-bottom: 1rem;
-            opacity: 0.5;
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .portfolio-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .portfolio-card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* Allows content to fill the card height */
+        }
+
+        .portfolio-card-content h5 {
+            font-size: 1.25rem;
+            color: #2c3e50;
+            margin-bottom: 0.75rem;
+        }
+
+        .portfolio-card-content p {
+            font-size: 1rem;
+            color: #495057;
+            margin: 0;
+            flex-grow: 1; /* Pushes tags to the bottom */
+            margin-bottom: 1.5rem;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tag-item {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: bold;
         }
 
         /* --- Featured Projects on Home Page --- */
@@ -544,7 +552,7 @@
         <!-- Hero Section / Home Page -->
         <section id="home" class="home-page-container page">
             <div class="home-image-container">
-                <img src="https://placehold.co/250x250/3498db/ecf0f1?text=AP" alt="Abhijeet Pawar" class="profile-picture">
+                <img src="Abhi.jpg" alt="Abhijeet Pawar" class="profile-picture" onerror="this.onerror=null;this.src='https://placehold.co/250x250/3498db/ecf0f1?text=AP';">
             </div>
             <div class="home-text-container">
                 <h1>Abhijeet Pawar</h1>
@@ -560,13 +568,13 @@
             <h2>Featured Projects</h2>
             <div class="featured-projects-container">
                 <div class="project-card">
-                    <a href="#maps" data-target="lulc-project">
+                    <a href="#maps">
                         <img src="LULC_2019.jpg" alt="LULC 2019" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2019';">
                         <h4>LULC Change Detection and Accuracy Assessment</h4>
                     </a>
                 </div>
                 <div class="project-card">
-                    <a href="#maps" data-target="urban-expansion-project">
+                    <a href="#maps">
                         <img src="FSAIII_LULC_1990.jpg" alt="Land Use - 1990" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Land+Use+1990';">
                         <h4>Modelling Urban Expansion</h4>
                     </a>
@@ -681,83 +689,92 @@
         <!-- Maps/Portfolio Page -->
         <section id="maps" class="content-section page light-section">
             <h2>Portfolio</h2>
-
-            <div class="project-section">
-                <h3 id="urban-expansion-project">Modelling Urban Expansion</h3>
-                <div class="map-gallery">
-                    <img src="FSAIII_LULC_1990.jpg" alt="Land Use - 1990" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Land+Use+1990';">
-                    <div class="caption">Land Use - 1990</div>
-    
-                    <img src="FSAIII_LULC_2025.jpg" alt="Land Use - 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Land+Use+2025';">
-                    <div class="caption">Land Use - 2025</div>
-    
-                    <img src="FSAIII_Prox.jpg" alt="Proximity Maps" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Proximity+Maps';">
-                    <div class="caption">Proximity Maps</div>
-    
-                    <img src="FSAIII_Simu_2025.jpg" alt="Simulation 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Simulation+2025';">
-                    <div class="caption">Simulation 2025</div>
-    
-                    <img src="FSAIII_Simu_2030.jpg" alt="Simulation 2030" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Simulation+2030';">
-                    <div class="caption">Simulation 2030</div>
+            <div class="portfolio-grid">
+                <!-- Project Card 1: Modelling Urban Expansion -->
+                <div class="portfolio-card">
+                    <img src="FSAIII_LULC_1990.jpg" alt="Urban Expansion" class="portfolio-card-img" onerror="this.src='https.placehold.co/600x400/4a627a/ffffff?text=Urban+Expansion';">
+                    <div class="portfolio-card-content">
+                        <h5>Modelling Urban Expansion</h5>
+                        <p>Simulated land use for Pune City (1990-2030) using GEE for classification and the MOLUSCE plugin in QGIS for <strong>Artificial Neural Network</strong>-based modeling.</p>
+                        <div class="tags-container">
+                            <span class="tag-item">QGIS</span>
+                            <span class="tag-item">Google Earth Engine</span>
+                            <span class="tag-item">Urban Planning</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="video-container">
-                    <h4>Land Use Animation</h4>
-                    <div class="video-placeholder">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
-                            <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"></path>
-                        </svg>
-                        <p>Video coming soon</p>
+
+                <!-- Project Card 2: Site Suitability Analysis -->
+                <div class="portfolio-card">
+                    <img src="https://placehold.co/600x400/4a627a/ffffff?text=Site+Suitability" alt="Site Suitability" class="portfolio-card-img">
+                    <div class="portfolio-card-content">
+                        <h5>Site Suitability Analysis</h5>
+                        <p>Identified optimal locations for garbage transfer facilities in Bhopal using GEE and QGIS based on key geospatial criteria.</p>
+                        <div class="tags-container">
+                            <span class="tag-item">QGIS</span>
+                            <span class="tag-item">Google Earth Engine</span>
+                            <span class="tag-item">Urban Services</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3: LULC Change Detection -->
+                <div class="portfolio-card">
+                    <img src="LULC_Comp.jpg" alt="LULC Comparison" class="portfolio-card-img" onerror="this.src='https://placehold.co/600x400/4a627a/ffffff?text=LULC+Analysis';">
+                    <div class="portfolio-card-content">
+                        <h5>LULC Change Detection</h5>
+                        <p>Analyzed Land Use/Land Cover changes in Pune (2019-2025) using <strong>Random Forest Classification</strong> in GEE and conducted <strong>Accuracy Assessments</strong>.</p>
+                        <div class="tags-container">
+                            <span class="tag-item">Google Earth Engine</span>
+                            <span class="tag-item">Machine Learning</span>
+                            <span class="tag-item">Remote Sensing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 4: Image Indices Analysis -->
+                <div class="portfolio-card">
+                    <img src="Sent_NDVI.jpg" alt="NDVI Analysis" class="portfolio-card-img" onerror="this.src='https://placehold.co/600x400/4a627a/ffffff?text=Image+Indices';">
+                    <div class="portfolio-card-content">
+                        <h5>Image Indices Analysis</h5>
+                        <p>Calculated and compared NDVI, NDBI, and NDWI for Pune using Landsat & Sentinel data to analyze vegetation, built-up areas, and water bodies.</p>
+                        <div class="tags-container">
+                            <span class="tag-item">Remote Sensing</span>
+                            <span class="tag-item">GEE</span>
+                            <span class="tag-item">NDVI</span>
+                            <span class="tag-item">NDWI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 5: City Analytics - Pune -->
+                <div class="portfolio-card">
+                    <img src="https://placehold.co/600x400/4a627a/ffffff?text=City+Analytics" alt="City Analytics" class="portfolio-card-img">
+                    <div class="portfolio-card-content">
+                        <h5>City Analytics - Pune</h5>
+                        <p>A comparative analysis of Literacy and Employment in Pune & PCMC using Census 2011 data, applying <strong>Linear Regression, Machine Learning and K-Means Clustering</strong>.</p>
+                        <div class="tags-container">
+                            <span class="tag-item">R Programming</span>
+                            <span class="tag-item">Stata</span>
+                            <span class="tag-item">Data Analysis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 6: Basemap Digitisation -->
+                <div class="portfolio-card">
+                     <img src="https://placehold.co/600x400/4a627a/ffffff?text=Digitisation" alt="Digitisation" class="portfolio-card-img">
+                    <div class="portfolio-card-content">
+                        <h5>Basemap Digitisation</h5>
+                        <p>Prepared foundational GIS maps by digitizing various features within Pune City, including the creation of detailed contour maps.</p>
+                        <div class="tags-container">
+                            <span class="tag-item">QGIS</span>
+                            <span class="tag-item">Digitisation</span>
+                            <span class="tag-item">Cartography</span>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="project-section">
-                <h3>Site Suitability Analysis</h3>
-                <p style="text-align:center; margin-top: 1rem;">Conducted site suitability analysis using GEE and QGIS to locate Ultra-Modern Garbage Transfer Facilities in the Bhopal Municipal Corporation area. Project assets can be added here.</p>
-            </div>
-
-            <div class="project-section">
-                <h3 id="lulc-project">LULC Change Detection and Accuracy Assessment</h3>
-                <div class="map-gallery">
-                    <img src="LULC_2019.jpg" alt="LULC 2019" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2019';">
-                    <div class="caption">LULC 2019</div>
-    
-                    <img src="LULC_2025.jpg" alt="LULC 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2025';">
-                    <div class="caption">LULC 2025</div>
-    
-                    <img src="LULC_Comp.jpg" alt="LULC Comparison" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+Comparison';">
-                    <div class="caption">LULC Comparison</div>
-                </div>
-            </div>
-
-            <div class="project-section">
-                <h3>Image Indices</h3>
-                <div class="map-gallery">
-                    <img src="Sent_Std_FCC.jpg" alt="Sentinel Standard FCC" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+Standard+FCC';">
-                    <div class="caption">Sentinel Standard FCC</div>
-    
-                    <img src="Sent_NDVI.jpg" alt="Sentinel NDVI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDVI';">
-                    <div class="caption">Sentinel NDVI</div>
-    
-                    <img src="Sent_NDWI.jpg" alt="Sentinel NDWI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDWI';">
-                    <div class="caption">Sentinel NDWI</div>
-    
-                    <img src="Sent_NDBI.jpg" alt="Sentinel NDBI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDBI';">
-                    <div class="caption">Sentinel NDBI</div>
-                </div>
-            </div>
-
-            <div class="project-section">
-                <h3>Digitisation</h3>
-                <iframe src="Intro_GIS.pdf" width="100%" height="500px" style="margin-top:1.5rem;"></iframe>
-            </div>
-
-            <div class="project-section">
-                <h3>City Analytics - Pune</h3>
-                <iframe src="City Analytics - Pune.pdf" width="100%" height="500px" style="margin-top:1.5rem;"></iframe>
-            </div>
-
         </section>
 
     </main>
@@ -822,21 +839,7 @@
                 link.addEventListener('click', function(event) {
                     event.preventDefault();
                     const pageId = this.getAttribute('href').substring(1); // 'maps'
-                    const targetAnchorId = this.dataset.target;
-                    
-                    // Switch to the portfolio page
-                    showPage(pageId);
-                    
-                    const targetElement = document.getElementById(targetAnchorId);
-                    if (targetElement) {
-                        // Use a small delay to ensure the page is rendered before scrolling
-                        setTimeout(() => {
-                            targetElement.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }, 100);
-                    }
+                    showPage(pageId); // Just show the portfolio page
                 });
             });
 
@@ -853,5 +856,9 @@
     </script>
 </body>
 </html>
+
+
+
+
 
 
