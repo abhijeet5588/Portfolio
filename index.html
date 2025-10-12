@@ -486,28 +486,7 @@
             gap: 2rem;
             flex-wrap: wrap;
         }
-        .project-card {
-            background-color: #ffffff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            width: 350px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #dee2e6;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-        }
-        .project-card a {
-            text-decoration: none;
-        }
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
+      
         .project-card h4 {
             padding: 1rem;
             font-size: 1.1rem;
@@ -523,7 +502,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.8);
             z-index: 2000;
             justify-content: center;
             align-items: center;
@@ -533,8 +512,8 @@
             background-color: #ffffff;
             padding: 2rem;
             border-radius: 8px;
-            width: 1200px; /* Increased width */
-            max-width: 95%; /* Adjusted max-width */
+            width: 1200px;
+            max-width: 95%;
             max-height: 95%;
             overflow-y: auto;
             position: relative;
@@ -544,8 +523,8 @@
         .modal-close {
             position: absolute;
             top: 15px;
-            right: 15px;
-            font-size: 2rem;
+            right: 25px;
+            font-size: 2.5rem;
             font-weight: bold;
             color: #333;
             cursor: pointer;
@@ -559,6 +538,13 @@
             padding-bottom: 1rem;
             border-bottom: 1px solid #dee2e6;
         }
+        
+        /* NEW TWO-COLUMN MODAL LAYOUT */
+        .modal-body-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
 
         .modal-gallery {
             display: flex;
@@ -568,7 +554,7 @@
 
         .modal-gallery img, .modal-gallery video, .modal-gallery iframe {
             width: 100%;
-            max-width: 800px;
+            max-width: 100%;
             margin: 0 auto;
             display: block;
             border-radius: 4px;
@@ -580,6 +566,27 @@
             margin-top: 0.5rem;
             color: #495057;
         }
+
+        .modal-text-content h4 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 0.75rem;
+            margin-top: 1rem;
+        }
+         .modal-text-content h4:first-child {
+            margin-top: 0;
+        }
+
+        .modal-text-content p, .modal-text-content li {
+            font-size: 1rem;
+            color: #495057;
+            text-align: left;
+        }
+        
+        .modal-text-content ul {
+            padding-left: 20px;
+        }
+
 
         .project-modal-content {
             display: none; /* Hide the template content */
@@ -595,8 +602,8 @@
         
         /* --- Responsive Design for smaller screens --- */
         @media (max-width: 900px) {
-            .home-page-container, .about-me-container {
-                flex-direction: column; /* Stack on smaller screens */
+            .home-page-container {
+                flex-direction: column;
                 text-align: center;
             }
 
@@ -612,6 +619,10 @@
             .nav-links {
                 justify-content: center;
                 width: 100%;
+            }
+
+            .modal-body-grid {
+                grid-template-columns: 1fr; /* Stack columns on smaller screens */
             }
         }
         
@@ -844,7 +855,7 @@
 
                 <!-- Project Card 5: City Analytics - Pune -->
                 <div class="portfolio-card">
-                    <img src="https://placehold.co/600x400/4a627a/ffffff?text=City+Analytics" alt="City Analytics" class="portfolio-card-img">
+                    <img src="Pune.jpg" alt="City Analytics" class="portfolio-card-img" onerror="this.src='https://placehold.co/600x400/4a627a/ffffff?text=City+Analytics';">
                     <div class="portfolio-card-content">
                         <h5>City Analytics - Pune</h5>
                         <p>A comparative analysis of Literacy and Employment in Pune & PCMC using Census 2011 data, applying <strong>Linear Regression, Machine Learning and K-Means Clustering</strong>.</p>
@@ -881,101 +892,220 @@
         <div class="modal-content">
             <span class="modal-close">&times;</span>
             <h3 class="modal-title">Project Title</h3>
-            <div class="modal-gallery">
-                <!-- Project content will be dynamically inserted here -->
+            <div class="modal-body-grid">
+                <div class="modal-gallery">
+                    <!-- Gallery content will be dynamically inserted here -->
+                </div>
+                <div class="modal-text-content">
+                    <!-- Text content will be dynamically inserted here -->
+                </div>
             </div>
         </div>
     </div>
 
     <!-- HIDDEN PROJECT CONTENT FOR MODALS -->
     <div class="project-modal-content" id="urban-expansion-modal">
-        <div>
-            <img src="FSAIII_LULC_1990.jpg" alt="Land Use - 1990" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Land+Use+1990';">
-            <p class="caption">Land Use - 1990</p>
+        <div class="project-gallery-content">
+            <div>
+                <img src="FSAIII_LULC_1990.jpg" alt="Land Use - 1990" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Land+Use+1990';">
+                <p class="caption">Land Use - 1990</p>
+            </div>
+            <div>
+                <img src="FSAIII_LULC_2025.jpg" alt="Land Use - 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Land+Use+2025';">
+                <p class="caption">Land Use - 2025</p>
+            </div>
+            <div>
+                <video controls>
+                    <source src="LULC_Animation.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="caption">Land Use Animation</p>
+            </div>
         </div>
-        <div>
-            <img src="FSAIII_LULC_2025.jpg" alt="Land Use - 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Land+Use+2025';">
-            <p class="caption">Land Use - 2025</p>
-        </div>
-        <div>
-            <img src="FSAIII_Prox.jpg" alt="Proximity Maps" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Proximity+Maps';">
-            <p class="caption">Proximity Maps</p>
-        </div>
-        <div>
-            <img src="FSAIII_Simu_2025.jpg" alt="Simulation 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Simulation+2025';">
-            <p class="caption">Simulation 2025</p>
-        </div>
-        <div>
-            <img src="FSAIII_Simu_2030.jpg" alt="Simulation 2030" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Simulation+2030';">
-            <p class="caption">Simulation 2030</p>
-        </div>
-        <div>
-            <video controls>
-                <source src="LULC_Animation.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <p class="caption">Land Use Animation</p>
+        <div class="project-text-content">
+            <h4>Description</h4>
+            <p>This project involved simulating the urban expansion of Pune City over a 40-year period. Land Use (LU) classification was performed for every five years from 1990 to 2025 using satellite imagery in Google Earth Engine. The MOLUSCE plugin in QGIS was then used to train an Artificial Neural Network model. This model simulated the land use for 2025, which was then validated against the actual analyzed data for the same year before simulating a future scenario for 2030.</p>
+            <h4>Key Findings</h4>
+            <ul>
+                <li>Identified key drivers of urban sprawl in the Pune metropolitan region.</li>
+                <li>Validated the accuracy of the ANN model for predictive urban growth modeling.</li>
+                <li>Projected future growth hotspots, providing valuable data for infrastructure planning.</li>
+            </ul>
         </div>
     </div>
     <div class="project-modal-content" id="site-suitability-modal">
-        <div>
-            <img src="Site_suit_result.jpg" alt="GTS Site Suitability" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Result';">
-            <p class="caption">GTS Site Suitability</p>
+        <div class="project-gallery-content">
+             <div>
+                <img src="Site_suit_result.jpg" alt="GTS Site Suitability" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Result';">
+                <p class="caption">GTS Site Suitability</p>
+            </div>
+            <div>
+                <img src="Site_suit_02.jpg" alt="Land Suitability Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Step+2';">
+                <p class="caption">Land Suitability Map</p>
+            </div>
         </div>
-        <div>
-            <img src="Site_suit_02.jpg" alt="Land Suitability Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Step+2';">
-            <p class="caption">Land Suitability Map</p>
-        </div>
-        <div>
-            <img src="Site_suit_03.jpg" alt="Road Suitability Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Step+3';">
-            <p class="caption">Road Suitability Map</p>
-        </div>
-        <div>
-            <img src="Site_suit_04.jpg" alt="Water Suitability Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Step+4';">
-            <p class="caption">Water Suitability Map</p>
-        </div>
-        <div>
-            <img src="Site_suit_05.jpg" alt="Slope Suitability Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Step+5';">
-            <p class="caption">Slope Suitability Map</p>
+        <div class="project-text-content">
+            <h4>Description</h4>
+            <p>This analysis aimed to identify the most suitable locations for new Ultra-Modern Garbage Transfer Facilities within the Bhopal Municipal Corporation area. Using a multi-criteria evaluation (MCE) approach in QGIS and Google Earth Engine, factors like proximity to roads, distance from water bodies, land use type, and slope were analyzed to generate a final suitability map.</p>
+            <h4>Key Findings</h4>
+            <ul>
+                <li>Generated a suitability index map highlighting optimal, moderate, and unsuitable zones.</li>
+                <li>Pinpointed specific parcels of land that meet all the necessary criteria for facility placement.</li>
+                <li>Provided a data-driven basis for municipal decision-making on waste management infrastructure.</li>
+            </ul>
         </div>
     </div>
     <div class="project-modal-content" id="lulc-modal">
-        <div>
-            <img src="LULC_Comp.jpg" alt="LULC Comparison" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+Comparison';">
-            <p class="caption">LULC Comparison</p>
+        <div class="project-gallery-content">
+            <div>
+                <img src="LULC_Comp.jpg" alt="LULC Comparison" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+Comparison';">
+                <p class="caption">LULC Comparison</p>
+            </div>
         </div>
-        <div>
-            <img src="LULC_2019.jpg" alt="LULC 2019" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2019';">
-            <p class="caption">LULC 2019</p>
-        </div>
-        <div>
-            <img src="LULC_2025.jpg" alt="LULC 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2025';">
-            <p class="caption">LULC 2025</p>
+         <div class="project-text-content">
+            <h4>Description</h4>
+            <p>This project focused on quantifying the changes in Land Use and Land Cover (LULC) within Pune City between 2019 and 2025. The Random Forest classification algorithm in Google Earth Engine was used to classify satellite imagery into categories such as urban, vegetation, water, and barren land. Accuracy assessments were then conducted to validate the classification results.</p>
+            <h4>Key Findings</h4>
+            <ul>
+                <li>Measured the rate of increase in built-up areas and the corresponding decrease in vegetation cover.</li>
+                <li>Achieved a high level of accuracy in the classification model, confirming the reliability of the results.</li>
+                <li>Produced change detection maps that visually represent the transformation of the urban landscape.</li>
+            </ul>
         </div>
     </div>
     <div class="project-modal-content" id="indices-modal">
-        <div>
-            <img src="Sent_Std_FCC.jpg" alt="Sentinel Standard FCC" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+Standard+FCC';">
-            <p class="caption">Sentinel Standard FCC</p>
+        <div class="project-gallery-content">
+            <div>
+                <img src="Sent_NDVI.jpg" alt="Sentinel NDVI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDVI';">
+                <p class="caption">Sentinel NDVI</p>
+            </div>
+            <div>
+                <img src="Sent_NDWI.jpg" alt="Sentinel NDWI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDWI';">
+                <p class="caption">Sentinel NDWI</p>
+            </div>
         </div>
-        <div>
-            <img src="Sent_NDBI.jpg" alt="Sentinel NDBI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDBI';">
-            <p class="caption">Sentinel NDBI</p>
-        </div>
-        <div>
-            <img src="Sent_NDVI.jpg" alt="Sentinel NDVI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDVI';">
-            <p class="caption">Sentinel NDVI</p>
-        </div>
-        <div>
-            <img src="Sent_NDWI.jpg" alt="Sentinel NDWI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDWI';">
-            <p class="caption">Sentinel NDWI</p>
+         <div class="project-text-content">
+            <h4>Description</h4>
+            <p>This analysis utilized various spectral indices to study the environmental characteristics of Pune. By processing Landsat and Sentinel satellite data in Google Earth Engine, the Normalized Difference Vegetation Index (NDVI), Normalized Difference Built-up Index (NDBI), and Normalized Difference Water Index (NDWI) were calculated to map and quantify vegetation health, urban density, and surface water, respectively.</p>
+            <h4>Key Findings</h4>
+            <ul>
+                <li>Quantified changes in green cover and urban heat island intensity over time.</li>
+                <li>Mapped the extent of surface water bodies and their seasonal variations.</li>
+                <li>Demonstrated the effectiveness of multi-index analysis for comprehensive environmental monitoring.</li>
+            </ul>
         </div>
     </div>
-     <div class="project-modal-content" id="city-analytics-modal">
-        <iframe src="City_Analytics.pdf" width="100%" height="600px" style="border:none;"></iframe>
+    <div class="project-modal-content" id="city-analytics-modal">
+        <div class="project-gallery-content">
+            <div>
+                <img src="City_Analytics_1.jpg" alt="City Analytics 1" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+1';">
+                <p class="caption">City Analytics 1</p>
+            </div>
+            <div>
+                <img src="City_Analytics_2.jpg" alt="City Analytics 2" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+2';">
+                <p class="caption">City Analytics 2</p>
+            </div>
+            <div>
+                <img src="City_Analytics_3.jpg" alt="City Analytics 3" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+3';">
+                <p class="caption">City Analytics 3</p>
+            </div>
+            <div>
+                <img src="City_Analytics_4.jpg" alt="City Analytics 4" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+4';">
+                <p class="caption">City Analytics 4</p>
+            </div>
+            <div>
+                <img src="City_Analytics_5.jpg" alt="City Analytics 5" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+5';">
+                <p class="caption">City Analytics 5</p>
+            </div>
+            <div>
+                <img src="City_Analytics_6.jpg" alt="City Analytics 6" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+6';">
+                <p class="caption">City Analytics 6</p>
+            </div>
+            <div>
+                <img src="City_Analytics_7.jpg" alt="City Analytics 7" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+7';">
+                <p class="caption">City Analytics 7</p>
+            </div>
+            <div>
+                <img src="City_Analytics_8.jpg" alt="City Analytics 8" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+8';">
+                <p class="caption">City Analytics 8</p>
+            </div>
+            <div>
+                <img src="City_Analytics_9.jpg" alt="City Analytics 9" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+9';">
+                <p class="caption">City Analytics 9</p>
+            </div>
+            <div>
+                <img src="City_Analytics_10.jpg" alt="City Analytics 10" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+10';">
+                <p class="caption">City Analytics 10</p>
+            </div>
+            <div>
+                <img src="City_Analytics_11.jpg" alt="City Analytics 11" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+11';">
+                <p class="caption">City Analytics 11</p>
+            </div>
+            <div>
+                <img src="City_Analytics_12.jpg" alt="City Analytics 12" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+12';">
+                <p class="caption">City Analytics 12</p>
+            </div>
+        </div>
+        <div class="project-text-content">
+            <h4>Description</h4>
+            <p>Using Census 2011 data, this project conducted a comparative statistical analysis of female literacy and employment across the wards of the Pune Municipal Corporation (PMC) and Pimpri Chinchwad Municipal Corporation (PCMC). The analysis employed Linear Regression models to understand correlations and K-Means Clustering, a Machine Learning technique, to identify patterns and group wards with similar socio-economic characteristics.</p>
+             <h4>Key Findings</h4>
+            <ul>
+                <li>Identified a positive correlation between female literacy rates and female workforce participation in both corporations.</li>
+                <li>Segmented the wards into distinct clusters, revealing spatial patterns of socio-economic development.</li>
+                <li>Provided insights that can inform targeted policy interventions for improving female education and employment opportunities.</li>
+            </ul>
+        </div>
     </div>
     <div class="project-modal-content" id="digitisation-modal">
-        <iframe src="Intro_GIS.pdf" width="100%" height="600px" style="border:none;"></iframe>
+        <div class="project-gallery-content">
+            <div>
+                <img src="Intro_GIS_1.jpg" alt="Intro GIS 1" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+1';">
+                <p class="caption">Intro GIS 1</p>
+            </div>
+            <div>
+                <img src="Intro_GIS_2.jpg" alt="Intro GIS 2" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+2';">
+                <p class="caption">Intro GIS 2</p>
+            </div>
+            <div>
+                <img src="Intro_GIS_3.jpg" alt="Intro GIS 3" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+3';">
+                <p class="caption">Intro GIS 3</p>
+            </div>
+            <div>
+                <img src="Intro_GIS_4.jpg" alt="Intro GIS 4" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+4';">
+                <p class="caption">Intro GIS 4</p>
+            </div>
+            <div>
+                <img src="Intro_GIS_5.jpg" alt="Intro GIS 5" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+5';">
+                <p class="caption">Intro GIS 5</p>
+            </div>
+            <div>
+                <img src="Intro_GIS_6.jpg" alt="Intro GIS 6" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+6';">
+                <p class="caption">Intro GIS 6</p>
+            </div>
+            <div>
+                <img src="Intro_GIS_7.jpg" alt="Intro GIS 7" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+7';">
+                <p class="caption">Intro GIS 7</p>
+            </div>
+            <div>
+                <img src="Intro_GIS_8.jpg" alt="Intro GIS 8" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+8';">
+                <p class="caption">Intro GIS 8</p>
+            </div>
+            <div>
+                <img src="Intro_GIS_9.jpg" alt="Intro GIS 9" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+9';">
+                <p class="caption">Intro GIS 9</p>
+            </div>
+        </div>
+        <div class="project-text-content">
+            <h4>Description</h4>
+            <p>This foundational project involved the creation of a detailed basemap for Pune City through manual digitisation in QGIS. Key urban and natural features, such as road networks, building footprints, water bodies, and green spaces, were traced from satellite imagery to produce accurate vector data. The project also included the generation of contour lines from elevation data to create a comprehensive topographical map.</p>
+             <h4>Key Findings</h4>
+            <ul>
+                <li>Produced a high-quality, accurate vector basemap essential for further geospatial analysis.</li>
+                <li>Developed a detailed contour map illustrating the topography of the city.</li>
+                <li>Demonstrated proficiency in core GIS techniques, including digitizing, data creation, and cartographic representation.</li>
+            </ul>
+        </div>
     </div>
 
 
@@ -1001,6 +1131,7 @@
             const modalClose = document.querySelector('.modal-close');
             const modalTitle = document.querySelector('.modal-title');
             const modalGallery = document.querySelector('.modal-gallery');
+            const modalTextContent = document.querySelector('.modal-text-content');
             const viewProjectButtons = document.querySelectorAll('.view-project-btn');
 
             viewProjectButtons.forEach(button => {
@@ -1011,8 +1142,13 @@
                     const projectTitle = this.closest('.portfolio-card-content').querySelector('h5').textContent;
 
                     if (projectContent) {
+                        const gallerySource = projectContent.querySelector('.project-gallery-content');
+                        const textSource = projectContent.querySelector('.project-text-content');
+
                         modalTitle.textContent = projectTitle;
-                        modalGallery.innerHTML = projectContent.innerHTML;
+                        if(gallerySource) modalGallery.innerHTML = gallerySource.innerHTML;
+                        if(textSource) modalTextContent.innerHTML = textSource.innerHTML;
+                        
                         modalOverlay.style.display = 'flex';
                     }
                 });
@@ -1020,7 +1156,8 @@
             
             function closeModal() {
                 modalOverlay.style.display = 'none';
-                modalGallery.innerHTML = ''; // Clear content on close to prevent issues
+                modalGallery.innerHTML = '';
+                modalTextContent.innerHTML = '';
             }
 
             modalClose.addEventListener('click', closeModal);
