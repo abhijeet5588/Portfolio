@@ -486,8 +486,30 @@
             gap: 2rem;
             flex-wrap: wrap;
         }
-      
-        .project-card h4 {
+        
+        #home-highlights .project-card { /* More specific selector for home page cards */
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            width: 320px; /* Reduced width */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #dee2e6;
+        }
+        #home-highlights .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        #home-highlights .project-card a {
+            text-decoration: none;
+        }
+        #home-highlights .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        #home-highlights .project-card h4 {
             padding: 1rem;
             font-size: 1.1rem;
             color: #343a40;
@@ -855,7 +877,7 @@
 
                 <!-- Project Card 5: City Analytics - Pune -->
                 <div class="portfolio-card">
-                    <img src="Pune.jpg" alt="City Analytics" class="portfolio-card-img" onerror="this.src='https://placehold.co/600x400/4a627a/ffffff?text=City+Analytics';">
+                    <img src="City_Analytics_1.jpg" alt="City Analytics" class="portfolio-card-img" onerror="this.src='https://placehold.co/600x400/4a627a/ffffff?text=City+Analytics';">
                     <div class="portfolio-card-content">
                         <h5>City Analytics - Pune</h5>
                         <p>A comparative analysis of Literacy and Employment in Pune & PCMC using Census 2011 data, applying <strong>Linear Regression, Machine Learning and K-Means Clustering</strong>.</p>
@@ -868,11 +890,11 @@
                     </div>
                 </div>
 
-                <!-- Project Card 6: Basemap Digitisation -->
+                <!-- Project Card 6: Basemap Preparation -->
                 <div class="portfolio-card">
-                     <img src="https://placehold.co/600x400/4a627a/ffffff?text=Digitisation" alt="Digitisation" class="portfolio-card-img">
+                     <img src="Intro_GIS_1.jpg" alt="Digitisation" class="portfolio-card-img" onerror="this.src='https://placehold.co/600x400/4a627a/ffffff?text=Digitisation';">
                     <div class="portfolio-card-content">
-                        <h5>Basemap Digitisation</h5>
+                        <h5>Basemap Preparation</h5>
                         <p>Prepared foundational GIS maps by digitizing various features within Pune City, including the creation of detailed contour maps.</p>
                         <div class="tags-container">
                             <span class="tag-item">QGIS</span>
@@ -914,6 +936,18 @@
                 <img src="FSAIII_LULC_2025.jpg" alt="Land Use - 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Land+Use+2025';">
                 <p class="caption">Land Use - 2025</p>
             </div>
+             <div>
+                <img src="FSAIII_Prox.jpg" alt="Proximity Maps" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Proximity+Maps';">
+                <p class="caption">Proximity Maps</p>
+            </div>
+            <div>
+                <img src="FSAIII_Simu_2025.jpg" alt="Simulation 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Simulation+2025';">
+                <p class="caption">Simulation 2025</p>
+            </div>
+            <div>
+                <img src="FSAIII_Simu_2030.jpg" alt="Simulation 2030" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Simulation+2030';">
+                <p class="caption">Simulation 2030</p>
+            </div>
             <div>
                 <video controls>
                     <source src="LULC_Animation.mp4" type="video/mp4">
@@ -943,6 +977,18 @@
                 <img src="Site_suit_02.jpg" alt="Land Suitability Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Step+2';">
                 <p class="caption">Land Suitability Map</p>
             </div>
+            <div>
+                <img src="Site_suit_03.jpg" alt="Road Suitability Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Step+3';">
+                <p class="caption">Road Suitability Map</p>
+            </div>
+            <div>
+                <img src="Site_suit_04.jpg" alt="Water Suitability Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Step+4';">
+                <p class="caption">Water Suitability Map</p>
+            </div>
+            <div>
+                <img src="Site_suit_05.jpg" alt="Slope Suitability Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Step+5';">
+                <p class="caption">Slope Suitability Map</p>
+            </div>
         </div>
         <div class="project-text-content">
             <h4>Description</h4>
@@ -961,6 +1007,14 @@
                 <img src="LULC_Comp.jpg" alt="LULC Comparison" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+Comparison';">
                 <p class="caption">LULC Comparison</p>
             </div>
+            <div>
+                <img src="LULC_2019.jpg" alt="LULC 2019" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2019';">
+                <p class="caption">LULC 2019</p>
+            </div>
+            <div>
+                <img src="LULC_2025.jpg" alt="LULC 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2025';">
+                <p class="caption">LULC 2025</p>
+            </div>
         </div>
          <div class="project-text-content">
             <h4>Description</h4>
@@ -975,6 +1029,14 @@
     </div>
     <div class="project-modal-content" id="indices-modal">
         <div class="project-gallery-content">
+             <div>
+                <img src="Sent_Std_FCC.jpg" alt="Sentinel Standard FCC" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+Standard+FCC';">
+                <p class="caption">Sentinel Standard FCC</p>
+            </div>
+            <div>
+                <img src="Sent_NDBI.jpg" alt="Sentinel NDBI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDBI';">
+                <p class="caption">Sentinel NDBI</p>
+            </div>
             <div>
                 <img src="Sent_NDVI.jpg" alt="Sentinel NDVI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDVI';">
                 <p class="caption">Sentinel NDVI</p>
@@ -998,52 +1060,52 @@
     <div class="project-modal-content" id="city-analytics-modal">
         <div class="project-gallery-content">
             <div>
-                <img src="City_Analytics_1.jpg" alt="City Analytics 1" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+1';">
-                <p class="caption">City Analytics 1</p>
+                <img src="City_Analytics_1.jpg" alt="Introduction" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+1';">
+                <p class="caption">Introduction</p>
             </div>
             <div>
-                <img src="City_Analytics_2.jpg" alt="City Analytics 2" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+2';">
-                <p class="caption">City Analytics 2</p>
+                <img src="City_Analytics_2.jpg" alt="Literacy and Employment in ULGs" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+2';">
+                <p class="caption">Literacy and Employment in ULGs</p>
             </div>
             <div>
-                <img src="City_Analytics_3.jpg" alt="City Analytics 3" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+3';">
-                <p class="caption">City Analytics 3</p>
+                <img src="City_Analytics_3.jpg" alt="Linear Regression - PMC" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+3';">
+                <p class="caption">Linear Regression - PMC</p>
             </div>
             <div>
-                <img src="City_Analytics_4.jpg" alt="City Analytics 4" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+4';">
-                <p class="caption">City Analytics 4</p>
+                <img src="City_Analytics_4.jpg" alt="Linear Regression - PCMC" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+4';">
+                <p class="caption">Linear Regression - PCMC</p>
             </div>
             <div>
-                <img src="City_Analytics_5.jpg" alt="City Analytics 5" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+5';">
-                <p class="caption">City Analytics 5</p>
+                <img src="City_Analytics_5.jpg" alt="K Means Cluster - PMC" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+5';">
+                <p class="caption">K Means Cluster - PMC</p>
             </div>
             <div>
-                <img src="City_Analytics_6.jpg" alt="City Analytics 6" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+6';">
-                <p class="caption">City Analytics 6</p>
+                <img src="City_Analytics_6.jpg" alt="Cluster Visualisation - PMC" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+6';">
+                <p class="caption">Cluster Visualisation - PMC</p>
             </div>
             <div>
-                <img src="City_Analytics_7.jpg" alt="City Analytics 7" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+7';">
-                <p class="caption">City Analytics 7</p>
+                <img src="City_Analytics_7.jpg" alt="Inference - PMC" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+7';">
+                <p class="caption">Inference - PMC</p>
             </div>
             <div>
-                <img src="City_Analytics_8.jpg" alt="City Analytics 8" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+8';">
-                <p class="caption">City Analytics 8</p>
+                <img src="City_Analytics_8.jpg" alt="K Means Cluster - PCMC" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+8';">
+                <p class="caption">K Means Cluster - PCMC</p>
             </div>
             <div>
-                <img src="City_Analytics_9.jpg" alt="City Analytics 9" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+9';">
-                <p class="caption">City Analytics 9</p>
+                <img src="City_Analytics_9.jpg" alt="Cluster Visualisation - PMC" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+9';">
+                <p class="caption">Cluster Visualisation - PMC</p>
             </div>
             <div>
-                <img src="City_Analytics_10.jpg" alt="City Analytics 10" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+10';">
-                <p class="caption">City Analytics 10</p>
+                <img src="City_Analytics_10.jpg" alt="Inference - PCMC" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+10';">
+                <p class="caption">Inference - PCMC</p>
             </div>
             <div>
-                <img src="City_Analytics_11.jpg" alt="City Analytics 11" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+11';">
-                <p class="caption">City Analytics 11</p>
+                <img src="City_Analytics_11.jpg" alt="Data Visualisation" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+11';">
+                <p class="caption">Data Visualisation</p>
             </div>
             <div>
-                <img src="City_Analytics_12.jpg" alt="City Analytics 12" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+12';">
-                <p class="caption">City Analytics 12</p>
+                <img src="City_Analytics_12.jpg" alt="Data Visualisation" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+12';">
+                <p class="caption">Data Visualisation</p>
             </div>
         </div>
         <div class="project-text-content">
@@ -1060,40 +1122,40 @@
     <div class="project-modal-content" id="digitisation-modal">
         <div class="project-gallery-content">
             <div>
-                <img src="Intro_GIS_1.jpg" alt="Intro GIS 1" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+1';">
-                <p class="caption">Intro GIS 1</p>
+                <img src="Intro_GIS_1.jpg" alt="Pune City Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+1';">
+                <p class="caption">Pune City Map</p>
             </div>
             <div>
-                <img src="Intro_GIS_2.jpg" alt="Intro GIS 2" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+2';">
-                <p class="caption">Intro GIS 2</p>
+                <img src="Intro_GIS_2.jpg" alt="Pune City - Major Roads" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+2';">
+                <p class="caption">Pune City - Major Roads</p>
             </div>
             <div>
-                <img src="Intro_GIS_3.jpg" alt="Intro GIS 3" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+3';">
-                <p class="caption">Intro GIS 3</p>
+                <img src="Intro_GIS_3.jpg" alt="Pune City - Minor Roads" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+3';">
+                <p class="caption">Pune City - Minor Roads</p>
             </div>
             <div>
-                <img src="Intro_GIS_4.jpg" alt="Intro GIS 4" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+4';">
-                <p class="caption">Intro GIS 4</p>
+                <img src="Intro_GIS_4.jpg" alt="Pune City - Rivers" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+4';">
+                <p class="caption">Pune City - Rivers</p>
             </div>
             <div>
-                <img src="Intro_GIS_5.jpg" alt="Intro GIS 5" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+5';">
-                <p class="caption">Intro GIS 5</p>
+                <img src="Intro_GIS_5.jpg" alt="Pune City - Green Cover" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+5';">
+                <p class="caption">Pune City - Green Cover</p>
             </div>
             <div>
-                <img src="Intro_GIS_6.jpg" alt="Intro GIS 6" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+6';">
-                <p class="caption">Intro GIS 6</p>
+                <img src="Intro_GIS_6.jpg" alt="Pune City - Built up" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+6';">
+                <p class="caption">Pune City - Built up</p>
             </div>
             <div>
-                <img src="Intro_GIS_7.jpg" alt="Intro GIS 7" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+7';">
-                <p class="caption">Intro GIS 7</p>
+                <img src="Intro_GIS_7.jpg" alt="Pune City - Contours" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+7';">
+                <p class="caption">Pune City - Contours</p>
             </div>
             <div>
-                <img src="Intro_GIS_8.jpg" alt="Intro GIS 8" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+8';">
-                <p class="caption">Intro GIS 8</p>
+                <img src="Intro_GIS_8.jpg" alt="Pune City - Map with hillshade effect" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+8';">
+                <p class="caption">Pune City - Map with hillshade effect</p>
             </div>
             <div>
-                <img src="Intro_GIS_9.jpg" alt="Intro GIS 9" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+9';">
-                <p class="caption">Intro GIS 9</p>
+                <img src="Intro_GIS_9.jpg" alt="Pune City - Final Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+9';">
+                <p class="caption">Pune City - Final Map</p>
             </div>
         </div>
         <div class="project-text-content">
