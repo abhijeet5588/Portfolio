@@ -608,6 +608,21 @@
         .modal-text-content ul {
             padding-left: 20px;
         }
+        
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        .custom-table th, .custom-table td {
+            border: 1px solid #dee2e6;
+            padding: 8px;
+            text-align: left;
+        }
+        .custom-table th {
+            background-color: #e9ecef;
+        }
 
 
         .project-modal-content {
@@ -717,6 +732,20 @@
 
             <h3>Work Experience</h3>
             <div class="experience-container">
+                 <div class="experience-item">
+                    <div class="experience-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+                        <div class="experience-title">
+                            <h5>6th Odisha State Finance Commission (Intern)</h5>
+                            <p class="experience-meta">(Part-time) | August 2025 - Present</p>
+                        </div>
+                    </div>
+                    <ul class="experience-duties">
+                        <li>Assisting a 6th Odisha State Finance Commission member in analysing the Audited Finance Statements data of ULBs in Odisha.</li>
+                        <li>Contributing to a report chapter on the financial landscape of ULBs in Odisha.</li>
+                        <li>Developing a case study on the augmentation of the own-source revenue of ULBs.</li>
+                    </ul>
+                </div>
                 <div class="experience-item">
                     <div class="experience-header">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
@@ -937,16 +966,32 @@
                 <p class="caption">Land Use - 2025</p>
             </div>
              <div>
+                <img src="Mo_Area_Change.jpg" alt="Change in Area 1990 to 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Area+Change';">
+                <p class="caption">Change in Area 1990 to 2025</p>
+            </div>
+            <div>
                 <img src="FSAIII_Prox.jpg" alt="Proximity Maps" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Proximity+Maps';">
                 <p class="caption">Proximity Maps</p>
+            </div>
+             <div>
+                <img src="Mo_training.jpg" alt="Training the Model" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Training';">
+                <p class="caption">Training the Model</p>
             </div>
             <div>
                 <img src="FSAIII_Simu_2025.jpg" alt="Simulation 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Simulation+2025';">
                 <p class="caption">Simulation 2025</p>
             </div>
             <div>
+                <img src="Mo_validation.jpg" alt="Validating the Model - 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Validation';">
+                <p class="caption">Validating the Model - 2025</p>
+            </div>
+            <div>
                 <img src="FSAIII_Simu_2030.jpg" alt="Simulation 2030" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Simulation+2030';">
                 <p class="caption">Simulation 2030</p>
+            </div>
+             <div>
+                <img src="Mo-results.jpg" alt="Final Simulation Results" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Results';">
+                <p class="caption">Final Simulation Results</p>
             </div>
             <div>
                 <video controls>
@@ -958,12 +1003,59 @@
         </div>
         <div class="project-text-content">
             <h4>Description</h4>
-            <p>This project involved simulating the urban expansion of Pune City over a 40-year period. Land Use (LU) classification was performed for every five years from 1990 to 2025 using satellite imagery in Google Earth Engine. The MOLUSCE plugin in QGIS was then used to train an Artificial Neural Network model. This model simulated the land use for 2025, which was then validated against the actual analyzed data for the same year before simulating a future scenario for 2030.</p>
+            <p>This project involved simulating the urban expansion of Pune City over a 40-year period. Land Use (LU) classification was performed for every five years from 1990 to 2025 using satellite imagery in Google Earth Engine. The MOLUSCE plugin in QGIS was then used to train a <strong>Cellular Automata - Artificial Neural Network model.</strong> This model simulated the land use for 2025, which was then validated against the actual analyzed data for the same year before simulating a future scenario for 2030.</p>
+             <h4>Area Change Analysis (1990-2025)</h4>
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>1990 (Sqkm)</th>
+                            <th>1990 (%)</th>
+                            <th>2025 (Sqkm)</th>
+                            <th>2025 (%)</th>
+                            <th>Change %</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Built up</td>
+                            <td>120.4</td>
+                            <td>23.6</td>
+                            <td>193.46</td>
+                            <td>38.14</td>
+                            <td>11.6</td>
+                        </tr>
+                        <tr>
+                            <td>Vegetation</td>
+                            <td>87.8</td>
+                            <td>17.2</td>
+                            <td>130.75</td>
+                            <td>25.78</td>
+                            <td>7.3</td>
+                        </tr>
+                        <tr>
+                            <td>Water body</td>
+                            <td>8.4</td>
+                            <td>1.6</td>
+                            <td>5.96</td>
+                            <td>1.17</td>
+                            <td>-0.5</td>
+                        </tr>
+                        <tr>
+                            <td>Barren Land</td>
+                            <td>293.2</td>
+                            <td>57.5</td>
+                            <td>176.94</td>
+                            <td>34.89</td>
+                            <td>-18.4</td>
+                        </tr>
+                    </tbody>
+                </table>
             <h4>Key Findings</h4>
             <ul>
-                <li>Identified key drivers of urban sprawl in the Pune metropolitan region.</li>
-                <li>Validated the accuracy of the ANN model for predictive urban growth modeling.</li>
-                <li>Projected future growth hotspots, providing valuable data for infrastructure planning.</li>
+                <li>The predictive model demonstrated decent accuracy, with an percentage of correctness - 77.8% and a Kappa coefficient of 69.7% when validating the 2025 simulation.</li>
+                <li>Based on the results of simulation, built-up in increased from 193.46 Sqkm in 2025 to 215.21 Sqkm in 2030, Vegetation decreased from 130.75 Sqkm to 123.64 Sqkm during the same period.</li>
+                <li>As result of rapid urbanisation, the area of barren land decreased from 176.94 Sqkm in 2025 to 165.18 Sqkm in 2030.</li>
             </ul>
         </div>
     </div>
@@ -999,36 +1091,105 @@
                 <li>Pinpointed specific parcels of land that meet all the necessary criteria for facility placement.</li>
                 <li>Provided a data-driven basis for municipal decision-making on waste management infrastructure.</li>
             </ul>
+             <h4>Weightage and Example Calculation</h4>
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Sr No</th>
+                            <th>Class</th>
+                            <th>Weightage (%)</th>
+                            <th>Ex Pixel value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Slope</td>
+                            <td>15</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Waterway</td>
+                            <td>30</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Road</td>
+                            <td>25</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>LULC</td>
+                            <td>30</td>
+                            <td>4</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>For example, a pixel with:</p>
+                <ul>
+                    <li>Slope class = 4,</li>
+                    <li>LULC class = 3,</li>
+                    <li>Water proximity class = 2,</li>
+                    <li>Road proximity class = 4</li>
+                    <li>will result in:</li>
+                    <li>Suitability Score = 4*0.15 + 3*0.30 + 2*0.25 + 4*0.30</li>
+                    <li><strong>Suitability Score = 3.2</strong></li>
+                </ul>
         </div>
     </div>
     <div class="project-modal-content" id="lulc-modal">
         <div class="project-gallery-content">
-            <div>
+             <div>
                 <img src="LULC_Comp.jpg" alt="LULC Comparison" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+Comparison';">
                 <p class="caption">LULC Comparison</p>
             </div>
             <div>
-                <img src="LULC_2019.jpg" alt="LULC 2019" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2019';">
-                <p class="caption">LULC 2019</p>
+                <img src="LULC_Change_Matrix.jpg" alt="Change Matrix" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Change+Matrix';">
+                <p class="caption">Change Matrix</p>
+            </div>
+            <div>
+                <img src="LULC_Data.jpg" alt="Area Change Visualisation" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Area+Change';">
+                <p class="caption">Area Change Visualisation</p>
+            </div>
+            <div>
+                <img src="LULC_Percent_Change.jpg" alt="Change in LU Area" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Percent+Change';">
+                <p class="caption">Change in LU Area</p>
             </div>
             <div>
                 <img src="LULC_2025.jpg" alt="LULC 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2025';">
                 <p class="caption">LULC 2025</p>
             </div>
+            <div>
+                <img src="LULC_2019.jpg" alt="LULC 2019" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2019';">
+                <p class="caption">LULC 2019</p>
+            </div>
         </div>
          <div class="project-text-content">
             <h4>Description</h4>
             <p>This project focused on quantifying the changes in Land Use and Land Cover (LULC) within Pune City between 2019 and 2025. The Random Forest classification algorithm in Google Earth Engine was used to classify satellite imagery into categories such as urban, vegetation, water, and barren land. Accuracy assessments were then conducted to validate the classification results.</p>
+            <h4>Change Matrix Explanation</h4>
+            <ul>
+                <li>11.3% area of barren land in 2019 became built up in 2025. Proves that city is spatially expanding continuously.</li>
+                <li>21.2 % of total area was built-up in 2019 and is constant in 2025 as well.</li>
+                <li>Though there is decrease in overall area of vegetation, slight increase of 3.6% area of barren land in 2019 became vegetation in 2025. This is the result of plantation drives by PMC.</li>
+            </ul>
             <h4>Key Findings</h4>
             <ul>
-                <li>Measured the rate of increase in built-up areas and the corresponding decrease in vegetation cover.</li>
-                <li>Achieved a high level of accuracy in the classification model, confirming the reliability of the results.</li>
-                <li>Produced change detection maps that visually represent the transformation of the urban landscape.</li>
+                <li>Between 2019 and 2025, Pune Municipal Corporation witnessed a notable rise in built-up area from 151 to 175.3 sq.km (4.8%), primarily at the expense of vegetation, barren land, and water bodies.</li>
+                <li>The urban expansion is attributed to rapid population growth, IT sector development in Hinjewadi and Kharadi, and ongoing infrastructure projects like Metro Rail and road widening.</li>
+                <li>This shift indicates intensifying urbanization, stressing the need for sustainable land management.</li>
             </ul>
         </div>
     </div>
     <div class="project-modal-content" id="indices-modal">
         <div class="project-gallery-content">
+             <div>
+                <img src="Sent_Data.jpg" alt="Sentinel Data" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+Data';">
+                <p class="caption">Sentinel Data</p>
+            </div>
              <div>
                 <img src="Sent_Std_FCC.jpg" alt="Sentinel Standard FCC" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+Standard+FCC';">
                 <p class="caption">Sentinel Standard FCC</p>
