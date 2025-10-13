@@ -403,12 +403,12 @@
         .portfolio-card {
             background-color: #ffffff;
             border-radius: 8px;
-            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             display: flex;
             flex-direction: column;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #dee2e6;
+            padding: 1rem;
         }
 
         .portfolio-card:hover {
@@ -420,10 +420,11 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
+            border-radius: 4px;
         }
 
         .portfolio-card-content {
-            padding: 1.5rem;
+            padding-top: 1.5rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1; /* Allows content to fill the card height */
@@ -490,11 +491,11 @@
         #home-highlights .project-card { /* More specific selector for home page cards */
             background-color: #ffffff;
             border-radius: 8px;
-            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             width: 320px; /* Reduced width */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #dee2e6;
+            padding: 1rem;
         }
         #home-highlights .project-card:hover {
             transform: translateY(-5px);
@@ -508,9 +509,10 @@
             height: 200px;
             object-fit: cover;
             display: block;
+            border-radius: 4px;
         }
         #home-highlights .project-card h4 {
-            padding: 1rem;
+            padding: 1rem 0 0 0;
             font-size: 1.1rem;
             color: #343a40;
             margin-bottom: 0;
@@ -580,6 +582,11 @@
             margin: 0 auto;
             display: block;
             border-radius: 4px;
+        }
+        
+        .modal-gallery .map-image {
+            border: 3px solid #abb2b9;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .modal-gallery .caption {
@@ -991,15 +998,8 @@
                 <p class="caption">Simulation 2030</p>
             </div>
              <div>
-                 <img src="Mo_S_Results.jpg" alt="Final Simulation Results" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Results';">
+                <img src="Mo_S_Results.jpg" alt="Final Simulation Results" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Results';">
                 <p class="caption">Final Simulation Results</p>
-            </div>
-            <div>
-                <video controls>
-                    <source src="LULC_Animation.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <p class="caption">Land Use Animation</p>
             </div>
         </div>
         <div class="project-text-content">
