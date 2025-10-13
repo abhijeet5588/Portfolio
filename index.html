@@ -403,12 +403,12 @@
         .portfolio-card {
             background-color: #ffffff;
             border-radius: 8px;
+            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             display: flex;
             flex-direction: column;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #dee2e6;
-            padding: 1rem;
         }
 
         .portfolio-card:hover {
@@ -420,11 +420,10 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
-            border-radius: 4px;
         }
 
         .portfolio-card-content {
-            padding-top: 1.5rem;
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1; /* Allows content to fill the card height */
@@ -491,11 +490,11 @@
         #home-highlights .project-card { /* More specific selector for home page cards */
             background-color: #ffffff;
             border-radius: 8px;
+            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            width: 320px; /* Reduced width */
+            width: 350px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #dee2e6;
-            padding: 1rem;
         }
         #home-highlights .project-card:hover {
             transform: translateY(-5px);
@@ -509,10 +508,9 @@
             height: 200px;
             object-fit: cover;
             display: block;
-            border-radius: 4px;
         }
         #home-highlights .project-card h4 {
-            padding: 1rem 0 0 0;
+            padding: 1rem;
             font-size: 1.1rem;
             color: #343a40;
             margin-bottom: 0;
@@ -584,11 +582,6 @@
             border-radius: 4px;
         }
         
-        .modal-gallery .map-image {
-            border: 3px solid #abb2b9;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
         .modal-gallery .caption {
             font-weight: bold;
             text-align: center;
@@ -966,11 +959,11 @@
     <div class="project-modal-content" id="urban-expansion-modal">
         <div class="project-gallery-content">
             <div>
-                <img src="FSAIII_LULC_1990.jpg" alt="Land Use - 1990" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Land+Use+1990';">
+                <img src="FSAIII_LULC_1990.jpg" class="map-image" alt="Land Use - 1990" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Land+Use+1990';">
                 <p class="caption">Land Use - 1990</p>
             </div>
             <div>
-                <img src="FSAIII_LULC_2025.jpg" alt="Land Use - 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Land+Use+2025';">
+                <img src="FSAIII_LULC_2025.jpg" class="map-image" alt="Land Use - 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Land+Use+2025';">
                 <p class="caption">Land Use - 2025</p>
             </div>
              <div>
@@ -978,15 +971,15 @@
                 <p class="caption">Change in Area 1990 to 2025</p>
             </div>
             <div>
-                <img src="FSAIII_Prox.jpg" alt="Proximity Maps" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Proximity+Maps';">
+                <img src="FSAIII_Prox.jpg" class="map-image" alt="Proximity Maps" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Proximity+Maps';">
                 <p class="caption">Proximity Maps</p>
             </div>
              <div>
-                <img src="Mo_training.jpg" alt="Training the Model" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Training';">
+                <img src="Mo_training.jpg" class="map-image" alt="Training the Model" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Training';">
                 <p class="caption">Training the Model</p>
             </div>
             <div>
-                <img src="FSAIII_Simu_2025.jpg" alt="Simulation 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Simulation+2025';">
+                <img src="FSAIII_Simu_2025.jpg" class="map-image" alt="Simulation 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Simulation+2025';">
                 <p class="caption">Simulation 2025</p>
             </div>
             <div>
@@ -994,12 +987,19 @@
                 <p class="caption">Validating the Model - 2025</p>
             </div>
             <div>
-                <img src="FSAIII_Simu_2030.jpg" alt="Simulation 2030" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Simulation+2030';">
+                <img src="FSAIII_Simu_2030.jpg" class="map-image" alt="Simulation 2030" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Simulation+2030';">
                 <p class="caption">Simulation 2030</p>
             </div>
              <div>
                 <img src="Mo_S_Results.jpg" alt="Final Simulation Results" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Results';">
                 <p class="caption">Final Simulation Results</p>
+            </div>
+            <div>
+                <video controls>
+                    <source src="LULC_Animation.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="caption">Land Use Animation</p>
             </div>
         </div>
         <div class="project-text-content">
@@ -1063,23 +1063,23 @@
     <div class="project-modal-content" id="site-suitability-modal">
         <div class="project-gallery-content">
              <div>
-                <img src="Site_suit_result.jpg" alt="GTS Site Suitability" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Result';">
+                <img src="Site_suit_result.jpg" class="map-image" alt="GTS Site Suitability" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Result';">
                 <p class="caption">GTS Site Suitability</p>
             </div>
             <div>
-                <img src="Site_suit_02.jpg" alt="Land Suitability Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Step+2';">
+                <img src="Site_suit_02.jpg" class="map-image" alt="Land Suitability Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Step+2';">
                 <p class="caption">Land Suitability Map</p>
             </div>
             <div>
-                <img src="Site_suit_03.jpg" alt="Road Suitability Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Step+3';">
+                <img src="Site_suit_03.jpg" class="map-image" alt="Road Suitability Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Step+3';">
                 <p class="caption">Road Suitability Map</p>
             </div>
             <div>
-                <img src="Site_suit_04.jpg" alt="Water Suitability Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Step+4';">
+                <img src="Site_suit_04.jpg" class="map-image" alt="Water Suitability Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Step+4';">
                 <p class="caption">Water Suitability Map</p>
             </div>
             <div>
-                <img src="Site_suit_05.jpg" alt="Slope Suitability Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Step+5';">
+                <img src="Site_suit_05.jpg" class="map-image" alt="Slope Suitability Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Step+5';">
                 <p class="caption">Slope Suitability Map</p>
             </div>
         </div>
@@ -1144,7 +1144,7 @@
     <div class="project-modal-content" id="lulc-modal">
         <div class="project-gallery-content">
              <div>
-                <img src="LULC_Comp.jpg" alt="LULC Comparison" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+Comparison';">
+                <img src="LULC_Comp.jpg" class="map-image" alt="LULC Comparison" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+Comparison';">
                 <p class="caption">LULC Comparison</p>
             </div>
             <div>
@@ -1160,11 +1160,11 @@
                 <p class="caption">Change in LU Area</p>
             </div>
             <div>
-                <img src="LULC_2025.jpg" alt="LULC 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2025';">
+                <img src="LULC_2025.jpg" class="map-image" alt="LULC 2025" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2025';">
                 <p class="caption">LULC 2025</p>
             </div>
             <div>
-                <img src="LULC_2019.jpg" alt="LULC 2019" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2019';">
+                <img src="LULC_2019.jpg" class="map-image" alt="LULC 2019" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=LULC+2019';">
                 <p class="caption">LULC 2019</p>
             </div>
         </div>
@@ -1188,23 +1188,23 @@
     <div class="project-modal-content" id="indices-modal">
         <div class="project-gallery-content">
              <div>
-                <img src="Sent_Data.jpg" alt="Sentinel Data" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+Data';">
+                <img src="Sent_Data.jpg" class="map-image" alt="Sentinel Data" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+Data';">
                 <p class="caption">Sentinel Data</p>
             </div>
              <div>
-                <img src="Sent_Std_FCC.jpg" alt="Sentinel Standard FCC" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+Standard+FCC';">
+                <img src="Sent_Std_FCC.jpg" class="map-image" alt="Sentinel Standard FCC" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+Standard+FCC';">
                 <p class="caption">Sentinel Standard FCC</p>
             </div>
             <div>
-                <img src="Sent_NDBI.jpg" alt="Sentinel NDBI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDBI';">
+                <img src="Sent_NDBI.jpg" class="map-image" alt="Sentinel NDBI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDBI';">
                 <p class="caption">Sentinel NDBI</p>
             </div>
             <div>
-                <img src="Sent_NDVI.jpg" alt="Sentinel NDVI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDVI';">
+                <img src="Sent_NDVI.jpg" class="map-image" alt="Sentinel NDVI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDVI';">
                 <p class="caption">Sentinel NDVI</p>
             </div>
             <div>
-                <img src="Sent_NDWI.jpg" alt="Sentinel NDWI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDWI';">
+                <img src="Sent_NDWI.jpg" class="map-image" alt="Sentinel NDWI" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Sentinel+NDWI';">
                 <p class="caption">Sentinel NDWI</p>
             </div>
         </div>
@@ -1284,39 +1284,39 @@
     <div class="project-modal-content" id="digitisation-modal">
         <div class="project-gallery-content">
             <div>
-                <img src="Intro_GIS_1.jpg" alt="Pune City Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+1';">
+                <img src="Intro_GIS_1.jpg" class="map-image" alt="Pune City Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+1';">
                 <p class="caption">Pune City Map</p>
             </div>
             <div>
-                <img src="Intro_GIS_2.jpg" alt="Pune City - Major Roads" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+2';">
+                <img src="Intro_GIS_2.jpg" class="map-image" alt="Pune City - Major Roads" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+2';">
                 <p class="caption">Pune City - Major Roads</p>
             </div>
             <div>
-                <img src="Intro_GIS_3.jpg" alt="Pune City - Minor Roads" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+3';">
+                <img src="Intro_GIS_3.jpg" class="map-image" alt="Pune City - Minor Roads" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+3';">
                 <p class="caption">Pune City - Minor Roads</p>
             </div>
             <div>
-                <img src="Intro_GIS_4.jpg" alt="Pune City - Rivers" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+4';">
+                <img src="Intro_GIS_4.jpg" class="map-image" alt="Pune City - Rivers" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+4';">
                 <p class="caption">Pune City - Rivers</p>
             </div>
             <div>
-                <img src="Intro_GIS_5.jpg" alt="Pune City - Green Cover" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+5';">
+                <img src="Intro_GIS_5.jpg" class="map-image" alt="Pune City - Green Cover" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+5';">
                 <p class="caption">Pune City - Green Cover</p>
             </div>
             <div>
-                <img src="Intro_GIS_6.jpg" alt="Pune City - Built up" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+6';">
+                <img src="Intro_GIS_6.jpg" class="map-image" alt="Pune City - Built up" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+6';">
                 <p class="caption">Pune City - Built up</p>
             </div>
             <div>
-                <img src="Intro_GIS_7.jpg" alt="Pune City - Contours" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+7';">
+                <img src="Intro_GIS_7.jpg" class="map-image" alt="Pune City - Contours" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+7';">
                 <p class="caption">Pune City - Contours</p>
             </div>
             <div>
-                <img src="Intro_GIS_8.jpg" alt="Pune City - Map with hillshade effect" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+8';">
+                <img src="Intro_GIS_8.jpg" class="map-image" alt="Pune City - Map with hillshade effect" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+8';">
                 <p class="caption">Pune City - Map with hillshade effect</p>
             </div>
             <div>
-                <img src="Intro_GIS_9.jpg" alt="Pune City - Final Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+9';">
+                <img src="Intro_GIS_9.jpg" class="map-image" alt="Pune City - Final Map" onerror="this.src='https://placehold.co/800x450/4a627a/ffffff?text=Image+9';">
                 <p class="caption">Pune City - Final Map</p>
             </div>
         </div>
